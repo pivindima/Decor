@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Decor</string>
+    <string name="bottom_nav_categories">Categories</string>
+    <string name="bottom_nav_live">Live</string>
+    <string name="bottom_nav_static">Static</string>
+    <string name="bottom_nav_flash">Flash call</string>
+    <string name="btn_apply">Apply</string>
+    <string name="error_image_loading">Image loading error</string>
+    <string name="wallpaper_successfully_changed">Wallpaper successfully changed</string>
 </resources>
