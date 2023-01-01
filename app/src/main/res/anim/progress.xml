@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:interpolator/accelerate_cubic">
+    <scale
+        android:duration="300"
+        android:fromXScale="0.15"
+        android:fromYScale="0.15"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="0.3"
+        android:toYScale="0.3"
+        android:fillAfter="false"
+        android:repeatCount="-1"
+        android:repeatMode="reverse" />
+
+</set>
