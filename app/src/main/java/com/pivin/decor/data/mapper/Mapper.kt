@@ -1,13 +1,10 @@
 package com.pivin.decor.data.mapper
 
 import com.pivin.decor.data.database.model.CategoryDbModel
-import com.pivin.decor.data.database.model.LiveWallpaperDbModel
 import com.pivin.decor.data.database.model.StaticWallpaperDbModel
 import com.pivin.decor.data.network.model.CategoryDto
-import com.pivin.decor.data.network.model.LiveWallpaperDto
 import com.pivin.decor.data.network.model.StaticWallpaperDto
 import com.pivin.decor.domain.model.Category
-import com.pivin.decor.domain.model.LiveWallpaper
 import com.pivin.decor.domain.model.StaticWallpaper
 import javax.inject.Inject
 
@@ -29,14 +26,6 @@ class Mapper @Inject constructor() {
         dto.date
     )
 
-    fun mapLiveWallpaperDtoToDbModel(dto: LiveWallpaperDto) = LiveWallpaperDbModel(
-        dto.id,
-        dto.image,
-        dto.category,
-        dto.ed,
-        dto.date
-    )
-
     fun mapCategoryDbModelToEntity(dbModel: CategoryDbModel) = Category(
         dbModel.id,
         dbModel.name,
@@ -46,14 +35,6 @@ class Mapper @Inject constructor() {
     )
 
     fun mapStaticWallpaperDbModelToEntity(dbModel: StaticWallpaperDbModel) = StaticWallpaper(
-        dbModel.id,
-        dbModel.image,
-        dbModel.category,
-        dbModel.ed,
-        dbModel.date
-    )
-
-    fun mapLiveWallpaperDbModelToEntity(dbModel: LiveWallpaperDbModel) = LiveWallpaper(
         dbModel.id,
         dbModel.image,
         dbModel.category,

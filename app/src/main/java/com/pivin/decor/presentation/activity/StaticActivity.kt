@@ -21,15 +21,13 @@ import androidx.lifecycle.lifecycleScope
 import com.pivin.decor.App
 import com.pivin.decor.R
 import com.pivin.decor.databinding.ActivityStaticBinding
-import com.pivin.decor.presentation.ViewModelFactory
 import com.pivin.decor.presentation.view_models.StaticViewModel
+import com.pivin.decor.presentation.view_models.ViewModelFactory
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.IOException
-import java.lang.Exception
 import javax.inject.Inject
 
 
@@ -56,9 +54,6 @@ class StaticActivity : AppCompatActivity() {
         val progressAnimation = AnimationUtils.loadAnimation(this, R.anim.progress)
         startAnimation(binding.ivProgress, progressAnimation)
 
-//        WindowInsetsControllerCompat(window, window.decorView).hide(WindowInsetsCompat.Type.systemBars())
-//        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-
         WindowCompat.setDecorFitsSystemWindows(window, false)
         ViewCompat.setOnApplyWindowInsetsListener(binding.btnApply) { view, insets ->
             val systemBarInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -79,6 +74,7 @@ class StaticActivity : AppCompatActivity() {
                     stopAnimation(binding.ivProgress)
                     binding.btnApply.visibility = View.VISIBLE
                 }
+
                 override fun onError(e: Exception?) {
                     stopAnimation(binding.ivProgress)
                     Toast.makeText(this@StaticActivity, getString(R.string.error_image_loading), Toast.LENGTH_SHORT).show()

@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.pivin.decor.data.database.model.CategoryDbModel
-import com.pivin.decor.data.database.model.LiveWallpaperDbModel
 import com.pivin.decor.data.database.model.StaticWallpaperDbModel
 
 @Dao
@@ -19,7 +18,7 @@ interface WallpapersDao {
     fun getCategoryById(id: Long): LiveData<CategoryDbModel>
 
 
-    @Query("SELECT * FROM static_wallpaper ORDER BY date ASC")
+    @Query("SELECT * FROM static_wallpaper ORDER BY RANDOM()")
     fun getStaticWallpapers(): LiveData<List<StaticWallpaperDbModel>>
 
     @Query("SELECT * FROM static_wallpaper WHERE id == :id LIMIT 1")
@@ -31,27 +30,10 @@ interface WallpapersDao {
     @Query("SELECT * FROM static_wallpaper WHERE ed == :ed ORDER BY date ASC")
     fun getStaticWallpapersByEd(ed: Boolean): LiveData<List<StaticWallpaperDbModel>>
 
-
-    @Query("SELECT * FROM live_wallpaper ORDER BY date ASC")
-    fun getLiveWallpapers(): LiveData<List<LiveWallpaperDbModel>>
-
-    @Query("SELECT * FROM live_wallpaper WHERE id == :id LIMIT 1")
-    fun getLiveWallpaperById(id: Long): LiveData<LiveWallpaperDbModel>
-
-    @Query("SELECT * FROM live_wallpaper WHERE category == :category ORDER BY date ASC")
-    fun getLiveWallpapersByCategory(category: Long): LiveData<List<LiveWallpaperDbModel>>
-
-    @Query("SELECT * FROM live_wallpaper WHERE ed == :ed ORDER BY date ASC")
-    fun getLiveWallpapersByEd(ed: Boolean): LiveData<List<LiveWallpaperDbModel>>
-
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCategories(categories: List<CategoryDbModel>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertStaticWallpapers(staticWallpapers: List<StaticWallpaperDbModel>)
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertLiveWallpapers(liveWallpapers: List<LiveWallpaperDbModel>)
 
 }

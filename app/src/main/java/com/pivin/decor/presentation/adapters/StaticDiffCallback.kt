@@ -1,7 +1,6 @@
 package com.pivin.decor.presentation.adapters
 
 import androidx.recyclerview.widget.DiffUtil
-import com.pivin.decor.domain.model.Category
 import com.pivin.decor.domain.model.StaticWallpaper
 
 object StaticDiffCallback : DiffUtil.ItemCallback<StaticWallpaper>() {

@@ -2,16 +2,15 @@ package com.pivin.decor.presentation.activity
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.pivin.decor.App
 import com.pivin.decor.databinding.ActivityCategoryStaticBinding
 import com.pivin.decor.domain.model.StaticWallpaper
-import com.pivin.decor.presentation.ViewModelFactory
 import com.pivin.decor.presentation.adapters.StaticAdapter
 import com.pivin.decor.presentation.view_models.StaticViewModel
+import com.pivin.decor.presentation.view_models.ViewModelFactory
 import javax.inject.Inject
 
 class CategoryStaticActivity : AppCompatActivity() {

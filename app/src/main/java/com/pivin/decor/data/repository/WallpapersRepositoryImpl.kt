@@ -1,17 +1,14 @@
 package com.pivin.decor.data.repository
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.pivin.decor.data.database.WallpapersDao
 import com.pivin.decor.data.database.model.CategoryDbModel
-import com.pivin.decor.data.database.model.LiveWallpaperDbModel
 import com.pivin.decor.data.database.model.StaticWallpaperDbModel
 import com.pivin.decor.data.mapper.Mapper
 import com.pivin.decor.domain.model.Category
-import com.pivin.decor.domain.model.LiveWallpaper
-import com.pivin.decor.domain.model.WallpapersRepository
 import com.pivin.decor.domain.model.StaticWallpaper
+import com.pivin.decor.domain.model.WallpapersRepository
 import javax.inject.Inject
 
 class WallpapersRepositoryImpl @Inject constructor(
@@ -64,46 +61,12 @@ class WallpapersRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getLiveWallpapers(): LiveData<List<LiveWallpaper>> {
-        return Transformations.map(wallpapersDao.getLiveWallpapers()) {
-            it.map { liveWallpaperDbModel ->
-                mapper.mapLiveWallpaperDbModelToEntity(liveWallpaperDbModel)
-            }
-        }
-    }
-
-    override fun getLiveWallpaperById(id: Long): LiveData<LiveWallpaper> {
-        return Transformations.map(wallpapersDao.getLiveWallpaperById(id)) {
-            mapper.mapLiveWallpaperDbModelToEntity(it)
-        }
-    }
-
-    override fun getLiveWallpapersByCategory(category: Long): LiveData<List<LiveWallpaper>> {
-        return Transformations.map(wallpapersDao.getLiveWallpapersByCategory(category)) {
-            it.map { liveWallpaperDbModel ->
-                mapper.mapLiveWallpaperDbModelToEntity(liveWallpaperDbModel)
-            }
-        }
-    }
-
-    override fun getLiveWallpapersByEd(ed: Boolean): LiveData<List<LiveWallpaper>> {
-        return Transformations.map(wallpapersDao.getLiveWallpapersByEd(ed)) {
-            it.map { liveWallpaperDbModel ->
-                mapper.mapLiveWallpaperDbModelToEntity(liveWallpaperDbModel)
-            }
-        }
-    }
-
     override suspend fun insertCategories(categories: List<CategoryDbModel>) {
         wallpapersDao.insertCategories(categories)
     }
 
     override suspend fun insertStaticWallpapers(staticWallpapers: List<StaticWallpaperDbModel>) {
         wallpapersDao.insertStaticWallpapers(staticWallpapers)
-    }
-
-    override suspend fun insertLiveWallpapers(liveWallpapers: List<LiveWallpaperDbModel>) {
-        wallpapersDao.insertLiveWallpapers(liveWallpapers)
     }
 
 }
