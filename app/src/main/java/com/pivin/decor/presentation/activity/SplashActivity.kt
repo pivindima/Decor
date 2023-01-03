@@ -2,7 +2,6 @@ package com.pivin.decor.presentation.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -10,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.pivin.decor.App
 import com.pivin.decor.databinding.ActivitySplashBinding
 import com.pivin.decor.presentation.view_models.SplashViewModel
-import com.pivin.decor.presentation.ViewModelFactory
+import com.pivin.decor.presentation.view_models.ViewModelFactory
 import javax.inject.Inject
 
 @SuppressLint("CustomSplashScreen")

@@ -5,17 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.pivin.decor.App
 import com.pivin.decor.databinding.FragmentCategoriesBinding
 import com.pivin.decor.domain.model.Category
-import com.pivin.decor.presentation.view_models.CategoryViewModel
-import com.pivin.decor.presentation.ViewModelFactory
-import com.pivin.decor.presentation.activity.CategoryLiveActivity
 import com.pivin.decor.presentation.activity.CategoryStaticActivity
 import com.pivin.decor.presentation.adapters.CategoryAdapter
+import com.pivin.decor.presentation.view_models.CategoryViewModel
+import com.pivin.decor.presentation.view_models.ViewModelFactory
 import javax.inject.Inject
 
 class CategoriesFragment : Fragment() {
@@ -61,7 +59,7 @@ class CategoriesFragment : Fragment() {
     }
 
     private fun startCategoryDetailActivity(category: Category) {
-        val intent = if (category.live) CategoryLiveActivity.newIntent(requireContext(), category.id, category.name, category.image) else CategoryStaticActivity.newIntent(requireContext(), category.id, category.name, category.image)
+        val intent = CategoryStaticActivity.newIntent(requireContext(), category.id, category.name, category.image)
         startActivity(intent)
     }
 

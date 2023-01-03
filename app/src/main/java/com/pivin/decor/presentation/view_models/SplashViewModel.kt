@@ -46,13 +46,9 @@ class SplashViewModel @Inject constructor(
         val staticWallpapers = ApiFactory.apiService.getStaticWallpapers().map {
             mapper.mapStaticWallpaperDtoToDbModel(it)
         }
-        val liveWallpapers = ApiFactory.apiService.getLiveWallpapers().map {
-            mapper.mapLiveWallpaperDtoToDbModel(it)
-        }
 
         wallpapersDao.insertCategories(categories)
         wallpapersDao.insertStaticWallpapers(staticWallpapers)
-        wallpapersDao.insertLiveWallpapers(liveWallpapers)
 
         Preferences.putLong(app, Preferences.VERSION_DB, newVersionDb)
 

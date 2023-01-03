@@ -24,13 +24,6 @@
             android:theme="@style/Theme.Decor.Translucent"
             android:exported="false" />
         <activity
-            android:name=".presentation.activity.LiveActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.activity.CategoryLiveActivity"
-            android:exported="false"
-            android:parentActivityName=".presentation.activity.MainActivity" />
-        <activity
             android:name=".presentation.activity.CategoryStaticActivity"
             android:exported="false"
             android:parentActivityName=".presentation.activity.MainActivity" />
@@ -49,21 +42,6 @@
             android:exported="false"
             android:theme="@style/Theme.Decor">
         </activity>
-
-        <service
-            android:name=".services.LiveWallpaperService"
-            android:enabled="true"
-            android:label="Live Wallpaper Changer"
-            android:permission="android.permission.BIND_WALLPAPER"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.service.wallpaper.WallpaperService" />
-            </intent-filter>
-            <meta-data
-                android:name="android.service.wallpaper"
-                android:resource="@xml/live_wallpaper">
-            </meta-data>
-        </service>
 
     </application>
 

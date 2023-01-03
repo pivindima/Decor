@@ -5,10 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.pivin.decor.data.database.model.CategoryDbModel
-import com.pivin.decor.data.database.model.LiveWallpaperDbModel
 import com.pivin.decor.data.database.model.StaticWallpaperDbModel
 
-@Database(entities = [CategoryDbModel::class, StaticWallpaperDbModel::class, LiveWallpaperDbModel::class], version = 1, exportSchema = false)
+@Database(entities = [CategoryDbModel::class, StaticWallpaperDbModel::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     companion object {
 
